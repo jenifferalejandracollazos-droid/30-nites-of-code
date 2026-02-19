@@ -5,11 +5,10 @@ function testVar() {
     if (true) {
         var a = 5;
     }
-    console.log(a); // 5
+    console.log(a); // 5 (var ignores block scope)
 }
 
 testVar();
-
 
 // Example 2: let (block scope)
 function testLet() {
@@ -17,12 +16,12 @@ function testLet() {
         let b = 10;
         console.log(b); // 10
     }
+    // console.log(b); // ❌ Would be ReferenceError
 }
 
 testLet();
 
-
-// Example 3: Reassignment
+// Example 3: Reassignment of existing variable
 let x = 1;
 
 {
@@ -31,8 +30,7 @@ let x = 1;
 
 console.log(x); // 2
 
-
-// Example 4: Redeclaration inside block
+// Example 4: Block redeclaration with let
 {
     let x = 3;
     console.log(x); // 3
